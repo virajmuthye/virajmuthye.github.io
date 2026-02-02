@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science Communication Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --noir: #0a0a0a;
+            --cream: #f9f7f4;
+            --accent: #2a5a4a;
+            --subtle: #d4cfc5;
+            --highlight: #8b4513;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: var(--cream);
+            color: var(--noir);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem;
+            background: linear-gradient(165deg, var(--cream) 0%, #ede8e0 100%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .tagline {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.3s forwards;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--noir);
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.6s forwards;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.9s forwards;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1.2s forwards, float 2s ease-in-out infinite;
+        }
+
+        .scroll-indicator::after {
+            content: '↓';
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--cream) 0%, transparent 100%);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--noir);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        .section-header.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            color: var(--noir);
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            font-size: 1.05rem;
+            color: #6a6a6a;
+            max-width: 700px;
+            font-weight: 300;
+        }
+
+        /* Platform Grid */
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .platform-card {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid var(--subtle);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .platform-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .platform-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .platform-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .platform-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .platform-icon {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .platform-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .platform-meta {
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .platform-description {
+            font-size: 0.95rem;
+            color: #5a5a5a;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .platform-link {
+            display: inline-block;
+            font-size: 0.9rem;
+            color: var(--noir);
+            text-decoration: none;
+            border-bottom: 1px solid var(--noir);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .platform-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* Publications Section */
+        .publications-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .publication-item {
+            padding: 2rem;
+            background: white;
+            border-left: 3px solid var(--subtle);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .publication-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .publication-item:hover {
+            border-left-color: var(--accent);
+            background: #fafaf8;
+        }
+
+        .pub-category {
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+        }
+
+        .pub-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .pub-meta {
+            font-size: 0.9rem;
+            color: #7a7a7a;
+        }
+
+        /* Stats Section */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+            padding: 4rem 2rem;
+            background: var(--noir);
+            color: var(--cream);
+        }
+
+        .stat-item {
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .stat-item.visible {
+            animation: popIn 0.6s ease forwards;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--subtle);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding: 8rem 2rem;
+            background: linear-gradient(to bottom, var(--cream), #e8e3d9);
+        }
+
+        .contact-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .contact-btn {
+            padding: 1rem 2.5rem;
+            background: var(--noir);
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--noir);
+        }
+
+        .contact-btn:hover {
+            background: transparent;
+            color: var(--noir);
+        }
+
+        .contact-btn.secondary {
+            background: transparent;
+            color: var(--noir);
+        }
+
+        .contact-btn.secondary:hover {
+            background: var(--noir);
+            color: var(--cream);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            background: var(--noir);
+            color: var(--subtle);
+            font-size: 0.85rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, 0); }
+            50% { transform: translate(-50%, 10px); }
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            60% {
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"></div>
+        <ul class="nav-links">
+            <li><a href="#platforms">Platforms</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#writing">Writing</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="tagline">Science Communication</div>
+            <h1>Bridging Science<br>& Society</h1>
+            <p class="subtitle">Translating complex research into accessible narratives across biodiversity, mental health, and the realities of academic life</p>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <section id="platforms">
+        <div class="section-header">
+            <div class="section-number">01</div>
+            <h2 class="section-title">Active Platforms</h2>
+            <p class="section-description">Where I connect with audiences through storytelling, education, and authentic conversation</p>
+        </div>
+
+        <div class="platform-grid">
+            <div class="platform-card">
+                <div class="platform-icon">📝</div>
+                <h3 class="platform-title">Substack Newsletter</h3>
+                <div class="platform-meta">Active Publication</div>
+                <p class="platform-description">Regular insights on science communication, biodiversity conservation, graduate student experiences, and mental health in academia</p>
+                <a href="#" class="platform-link">Read Newsletter →</a>
+            </div>
+
+            <div class="platform-card" style="animation-delay: 0.1s">
+                <div class="platform-icon">📱</div>
+                <h3 class="platform-title">Instagram</h3>
+                <div class="platform-meta">~4,000 Followers</div>
+                <p class="platform-description">Visual storytelling focused on science communication, mental health advocacy, and demystifying academic culture</p>
+                <a href="#" class="platform-link">View Profile →</a>
+            </div>
+
+            <div class="platform-card" style="animation-delay: 0.2s">
+                <div class="platform-icon">✍️</div>
+                <h3 class="platform-title">Personal Blog</h3>
+                <div class="platform-meta">Independent Writing</div>
+                <p class="platform-description">Deep-dive articles exploring intersections of science, society, and personal experience</p>
+                <a href="#" class="platform-link">Explore Blog →</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-container">
+        <div class="stat-item">
+            <div class="stat-number">12</div>
+            <div class="stat-label">Peer-Reviewed Articles</div>
+        </div>
+        <div class="stat-item" style="animation-delay: 0.1s">
+            <div class="stat-number">8</div>
+            <div class="stat-label">First-Author Papers</div>
+        </div>
+        <div class="stat-item" style="animation-delay: 0.2s">
+            <div class="stat-number">~4K</div>
+            <div class="stat-label">Social Followers</div>
+        </div>
+        <div class="stat-item" style="animation-delay: 0.3s">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Published Poetry Book</div>
+        </div>
+    </div>
+
+    <section id="writing">
+        <div class="section-header">
+            <div class="section-number">02</div>
+            <h2 class="section-title">Featured Writing</h2>
+            <p class="section-description">Selected works across platforms and publications</p>
+        </div>
+
+        <div class="publications-grid">
+            <div class="publication-item">
+                <div class="pub-category">Guest Publication</div>
+                <h3 class="pub-title">Guest Article #1</h3>
+                <p class="pub-meta">Published on [External Blog Name]</p>
+            </div>
+
+            <div class="publication-item">
+                <div class="pub-category">Guest Publication</div>
+                <h3 class="pub-title">Guest Article #2</h3>
+                <p class="pub-meta">Published on [External Blog Name]</p>
+            </div>
+
+            <div class="publication-item">
+                <div class="pub-category">Poetry</div>
+                <h3 class="pub-title">Published Poetry Collection</h3>
+                <p class="pub-meta">Full-length book in English</p>
+            </div>
+
+            <div class="publication-item">
+                <div class="pub-category">Blog Essays</div>
+                <h3 class="pub-title">Original Long-form Articles</h3>
+                <p class="pub-meta">Self-published explorations on science & society</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="research">
+        <div class="section-header">
+            <div class="section-number">03</div>
+            <h2 class="section-title">Academic Research</h2>
+            <p class="section-description">Peer-reviewed contributions to the scientific literature</p>
+        </div>
+
+        <div class="publications-grid">
+            <div class="publication-item">
+                <div class="pub-category">Research Publication</div>
+                <h3 class="pub-title">12 Peer-Reviewed Articles</h3>
+                <p class="pub-meta">8 as first author • Topics include [your research areas]</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="contact-title">Let's Connect</div>
+        <p class="section-description" style="margin: 0 auto 2rem;">Interested in collaboration, guest writing, or science communication projects?</p>
+        
+        <div class="contact-links">
+            <a href="mailto:your.email@example.com" class="contact-btn">Email Me</a>
+            <a href="#" class="contact-btn secondary">Download CV</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 • Science Communication Portfolio</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.section-header, .platform-card, .publication-item, .stat-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
