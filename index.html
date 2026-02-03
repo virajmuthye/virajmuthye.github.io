@@ -6,262 +6,181 @@
     <title>Viraj Muthye | Science Communication Portfolio</title>
 
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Figtree:wght@300;400;600&display=swap');
 
     :root {
-        --primary-moss: #1a3c34;
-        --accent-leaf: #4ade80;
-        --earth-clay: #78350f;
-        --bio-bg: #f8faf9;
-        --paper-white: #ffffff;
-        --text-main: #1e293b;
-        --text-muted: #64748b;
-        --border-organic: #e2e8f0;
+        --paper: #fcfbf7;      /* Warm off-white */
+        --sage: #9db4a9;       /* Muted botanical green */
+        --dust: #b89286;       /* Soft earthy terracotta */
+        --slate: #4a5568;      /* Soft professional text */
+        --bone: #f1f3f0;       /* Neutral secondary background */
+        --border: #e2e4df;
     }
 
-    * { box-sizing: border-box; transition: all 0.3s ease; }
+    * { box-sizing: border-box; transition: all 0.4s ease; }
 
     body {
         margin: 0;
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        background: var(--bio-bg);
-        color: var(--text-main);
-        line-height: 1.6;
-        background-image: 
-            radial-gradient(circle at 2px 2px, #e2e8f0 1px, transparent 0);
-        background-size: 40px 40px;
+        font-family: 'Figtree', sans-serif;
+        background-color: var(--paper);
+        color: var(--slate);
+        line-height: 1.7;
     }
 
     main {
-        max-width: 1100px;
+        max-width: 1000px;
         margin: 0 auto;
-        padding: 4rem 2rem;
+        padding: 5rem 2rem;
     }
 
     /* TYPOGRAPHY */
-    h1, h2, h3 {
-        font-family: 'Playfair Display', serif;
-        color: var(--primary-moss);
-        margin: 0;
+    h1, h2, h3 { 
+        font-family: 'Crimson Pro', serif; 
+        font-weight: 700;
+        color: #2d3436;
     }
 
-    h1 { font-size: 3.5rem; line-height: 1.1; letter-spacing: -1px; }
-    h2 { font-size: 2rem; margin-bottom: 1.5rem; position: relative; display: inline-block;}
-    h2::after {
-        content: ""; position: absolute; bottom: -5px; left: 0; width: 40%; height: 3px; background: var(--accent-leaf);
-    }
+    h1 { font-size: 3.2rem; line-height: 1; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.8rem; border-bottom: 1px solid var(--sage); display: inline-block; margin-bottom: 2rem; }
+    
+    p { font-size: 1.05rem; }
 
-    /* BENTO GRID LAYOUT */
-    .bento-grid {
+    /* LAYOUT SYSTEM */
+    .portfolio-grid {
         display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 1.5rem;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 2rem;
     }
 
-    .glass-card {
-        background: var(--paper-white);
-        border: 1px solid var(--border-organic);
-        border-radius: 24px;
-        padding: 2rem;
-        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-        overflow: hidden;
+    .section-box {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 4px; /* Shorter radius for a more professional 'paper' look */
+        border: 1px solid var(--border);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.02);
     }
 
-    .glass-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 25px -5px rgba(26, 60, 52, 0.1);
-        border-color: var(--accent-leaf);
+    .section-box:hover {
+        box-shadow: 0 10px 30px rgba(157, 180, 169, 0.15);
+        border-color: var(--sage);
     }
 
-    /* HEADER / HERO SECTION */
-    .hero-section {
-        grid-column: span 12;
-        display: grid;
-        grid-template-columns: 250px 1fr;
-        gap: 3rem;
-        align-items: center;
-        background: var(--primary-moss);
-        color: white;
-        padding: 3rem;
-    }
+    /* SPECIFIC BLOCKS */
+    .hero-block { grid-column: span 6; display: flex; align-items: center; gap: 3rem; border: none; background: transparent; padding: 0;}
+    .bio-photo { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; filter: sepia(20%); border: 1px solid var(--border); }
 
-    .hero-section h1 { color: white; }
-    .hero-photo {
-        width: 250px;
-        height: 250px;
-        border-radius: 20px;
-        object-fit: cover;
-        filter: grayscale(20%);
-        border: 4px solid var(--accent-leaf);
-    }
-
-    .tag-container {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-        margin-top: 1rem;
-    }
-
-    .badge {
-        background: rgba(255,255,255,0.1);
-        padding: 0.5rem 1rem;
-        border-radius: 50px;
-        font-size: 0.8rem;
-        border: 1px solid rgba(255,255,255,0.2);
-        color: var(--accent-leaf);
-        font-weight: 600;
-    }
-
-    /* QUICK STATS SIDEBAR */
-    .sidebar-stats { grid-column: span 4; background: #fff; }
-    .main-content-area { grid-column: span 8; }
+    .main-projects { grid-column: span 4; }
+    .side-stats { grid-column: span 2; background: var(--bone); }
+    .full-width { grid-column: span 6; }
+    .half-width { grid-column: span 3; }
 
     /* PROJECT CARDS */
-    .project-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
-        margin-top: 2rem;
+    .project-mini {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--bone);
     }
+    .project-mini:last-child { border: none; }
+    .project-mini h3 { margin: 0 0 0.5rem 0; color: var(--dust); font-size: 1.4rem; }
 
-    .project-item {
-        background: white;
-        border-radius: 18px;
-        overflow: hidden;
-        border: 1px solid var(--border-organic);
-    }
-
-    .project-img {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-    }
-
-    .project-body { padding: 1.5rem; }
-    .project-body h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
-    .project-body ul { padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-muted); }
-
-    /* LINKS & BUTTONS */
-    .cta-link {
-        display: inline-flex;
-        align-items: center;
-        margin-top: 1rem;
-        color: var(--primary-moss);
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 0.9rem;
+    /* TAGS / PILLS */
+    .chip {
+        display: inline-block;
+        background: var(--bone);
+        color: var(--sage);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 0.5px;
+        margin-right: 0.5rem;
     }
 
-    .cta-link:hover { color: var(--accent-leaf); }
+    a { color: var(--sage); text-decoration: none; font-weight: 600; }
+    a:hover { color: var(--dust); border-bottom: 1px solid var(--dust); }
 
-    .full-width { grid-column: span 12; }
-    .half-width { grid-column: span 6; }
-
-    @media (max-width: 850px) {
-        .hero-section { grid-template-columns: 1fr; text-align: center; }
-        .hero-photo { margin: 0 auto; }
-        .sidebar-stats, .main-content-area, .half-width { grid-column: span 12; }
+    @media (max-width: 768px) {
+        .portfolio-grid { grid-template-columns: 1fr; }
+        .hero-block, .main-projects, .side-stats, .full-width, .half-width { grid-column: span 1; }
+        .hero-block { flex-direction: column; text-align: center; }
     }
     </style>
 </head>
 
 <body>
 <main>
-    <div class="bento-grid">
+    <div class="portfolio-grid">
         
-        <header class="glass-card hero-section">
-            <img src="profile.jpg" alt="Viraj Muthye" class="hero-photo">
-            <div class="hero-info">
-                <h1>Viraj Rajendra Muthye, <span style="color:var(--accent-leaf)">Ph.D.</span></h1>
-                <p style="font-size: 1.2rem; opacity: 0.9; margin: 1rem 0;">Bridging Complex Biology and Community Understanding</p>
-                <div class="tag-container">
-                    <span class="badge">Bioinformatician</span>
-                    <span class="badge">Sci-Comm Strategist</span>
-                    <span class="badge">Teaching Excellence Award</span>
-                    <span class="badge">Founder @ CSA</span>
-                </div>
+        <header class="hero-block">
+            <img src="profile.jpg" alt="Viraj Muthye" class="bio-photo">
+            <div>
+                <span class="chip" style="background: var(--sage); color: white;">Ph.D. Bioinformatician</span>
+                <h1>Viraj Rajendra Muthye</h1>
+                <p style="font-style: italic; color: var(--sage); font-size: 1.2rem; font-family: 'Crimson Pro', serif;">
+                    Science Communication through Editorial Practice, Teaching, and Community Engagement.
+                </p>
             </div>
         </header>
 
-        <aside class="glass-card sidebar-stats">
-            <h3>Scientific Credibility</h3>
-            <p><strong>12 Peer-Reviewed Publications</strong></p>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">Genomics, evolution, and parasitology. 8 first-author papers ensuring scientific rigor in every communication project.</p>
-            <hr style="border:0; border-top: 1px solid #eee; margin: 1.5rem 0;">
-            <h3>Expertise</h3>
-            <ul style="list-size: none; padding: 0; font-size: 0.9rem;">
-                <li>🧬 Bioinformatics Analysis</li>
-                <li>🔬 Microscopic Exploration</li>
-                <li>📝 Editorial Leadership</li>
-                <li>🌍 Community Outreach</li>
-            </ul>
+        <section class="section-box main-projects">
+            <h2>Featured Initiatives</h2>
+            
+            <div class="project-mini">
+                <h3>Calgary STEAM Camps</h3>
+                <p>Designed focused curricula for 50+ children at VIVO for Healthier Generations. Specialized in <em>Hidden Microscopic Biology</em> and <em>Water Wonders</em>.</p>
+            </div>
+
+            <div class="project-mini">
+                <h3>City-wide Biodiversity</h3>
+                <p>Developing interactive treasure hunts and zines that translate local Calgary ecology into accessible public resources.</p>
+            </div>
+
+            <div class="project-mini">
+                <h3>Sunalta Under The Lens</h3>
+                <p>Leading family-focused microscopy explorations, funded by the Sunalta Community Association.</p>
+            </div>
+        </section>
+
+        <aside class="section-box side-stats">
+            <h3 style="font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--sage);">Scientific Credibility</h3>
+            <p style="font-size: 2rem; font-family: 'Crimson Pro'; margin: 0.5rem 0;">12 Publications</p>
+            <p style="font-size: 0.9rem; color: var(--slate);">8 first-author papers in genomics and evolution. Ensuring accuracy in every narrative.</p>
+            <hr style="border: none; border-top: 1px solid var(--border); margin: 1.5rem 0;">
+            <p><strong>Awards</strong><br>Teaching Excellence (2015)</p>
+            <p><strong>Leadership</strong><br>Founder, Creative Science Alliance</p>
         </aside>
 
-        <section class="glass-card main-content-area">
-            <h2>Featured Projects</h2>
-            <div class="project-grid">
-                <div class="project-item">
-                    <img src="project1.jpeg" class="project-img">
-                    <div class="project-body">
-                        <h3>Calgary STEAM Camps</h3>
-                        <ul>
-                            <li>50+ children annually at VIVO</li>
-                            <li>Biology & Water Wonders focus</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <img src="project2.jpeg" class="project-img">
-                    <div class="project-body">
-                        <h3>Biodiversity Resources</h3>
-                        <ul>
-                            <li>City-wide treasure hunts</li>
-                            <li>Calgary-specific biology zines</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="glass-card half-width">
+        <section class="section-box half-width">
             <h2>Teaching & Design</h2>
-            <p>From Iowa State to the University of Calgary, I translate complex biological concepts into empathetic, inclusive pedagogy. <strong>2015 Teaching Excellence Award</strong> recipient.</p>
-            <img src="teaching1.jpg" style="width:100%; height:150px; border-radius:12px; object-fit:cover; margin-top:1rem;">
+            <p>Teaching biology since 2013 across Iowa State and UCalgary. My practice is built on <strong>inclusive pedagogy</strong>—communicating without assumptions.</p>
         </section>
 
-        <section class="glass-card half-width" style="background: #f0fdf4;">
+        <section class="section-box half-width">
             <h2>Creative Science Alliance</h2>
-            <p>Founded as an applied sci-comm laboratory for hands-on, hyper-local STEAM outreach rooted in local Calgary ecology.</p>
-            <a href="https://creativesciencealliance.weebly.com/" class="cta-link">Enter the Lab →</a>
+            <p>An applied lab for hyper-local STEAM outreach. We test engagement strategies through zines and public programming.</p>
+            <a href="https://creativesciencealliance.weebly.com/">Explore the Alliance →</a>
         </section>
 
-        <section class="glass-card full-width">
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+        <section class="section-box full-width">
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem;">
                 <div>
                     <h2>Editorial Leadership</h2>
-                    <p>Founder of <em>Diversity Digest</em> and <em>2-1-1</em>. Conceptualizing science newsletters that integrate biology, equity, and community-building.</p>
-                    <a href="#" class="cta-link">View Newsletter Archive →</a>
+                    <p>Former Newsletter Coordinator at Iowa State. Founder of <em>Diversity Digest</em>, bridging the gap between laboratory content and student community building.</p>
                 </div>
-                <div class="tag-container" style="align-content: center;">
-                    <div class="glass-card" style="padding: 1rem; background: var(--bio-bg);">
-                        <h3 style="font-size: 1rem;">Newsletter Writing</h3>
-                        <a href="https://virajmuthye.substack.com/" class="cta-link" style="font-size: 0.7rem;">Substack</a>
-                    </div>
-                    <div class="glass-card" style="padding: 1rem; background: var(--bio-bg);">
-                        <h3 style="font-size: 1rem;">Visual Storytelling</h3>
-                        <a href="https://www.instagram.com/virajmuthye" class="cta-link" style="font-size: 0.7rem;">Instagram</a>
-                    </div>
+                <div style="background: var(--bone); padding: 1.5rem; border-radius: 4px;">
+                    <h3 style="margin-top: 0;">Writing</h3>
+                    <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                        <li style="margin-bottom: 0.5rem;"><a href="https://virajmuthye.substack.com/">Substack Newsletter</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="https://www.instagram.com/virajmuthye">Instagram (Visual)</a></li>
+                        <li><a href="mailto:virajrajendra.muthye@ucalgary.ca">Contact Me</a></li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <footer class="glass-card full-width" style="background: var(--primary-moss); color: white; text-align: center;">
-            <h2 style="color: white; border-color: var(--accent-leaf);">Let's Collaborate</h2>
-            <p>Open to consulting, guest lectures, and STEAM program development.</p>
-            <p style="font-weight: 800; font-size: 1.2rem; margin: 1rem 0;">virajrajendra.muthye@ucalgary.ca</p>
-            <p style="font-size: 0.8rem; opacity: 0.7;">Calgary, Alberta • 2026 Science Communication Portfolio</p>
+        <footer style="grid-column: span 6; text-align: center; padding: 2rem; opacity: 0.6; font-size: 0.8rem;">
+            Viraj Rajendra Muthye • Calgary, Canada • PhD-trained Science Communicator
         </footer>
 
     </div>
