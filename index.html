@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viraj Rajendra Muthye | Science Communication Portfolio</title>
+    <title>Viraj Rajendra Muthye | Science Communication</title>
 
-    <meta name="description" content="Science communication portfolio of Viraj Rajendra Muthye. Teaching-driven, audience-first science communication grounded in biology, editorial practice, and public engagement.">
+    <meta name="description" content="Teaching-driven science communication grounded in biology, editorial practice, and public engagement.">
 
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --ink: #111413;
-            --paper: #fbfaf7;
-            --moss: #3f6f5e;
-            --lichen: #a8b8a6;
-            --soil: #6b5a45;
-            --line: #e3e1db;
+            --ink: #121514;
+            --paper: #fafaf6;
+            --moss: #365f52;
+            --lichen: #9fb2a4;
+            --soil: #5f5242;
+            --line: #deded6;
         }
 
         * {
@@ -27,55 +27,59 @@
 
         body {
             font-family: 'Work Sans', sans-serif;
-            background: var(--paper);
+            background:
+                linear-gradient(to bottom, rgba(0,0,0,0.02), transparent 120px),
+                var(--paper);
             color: var(--ink);
-            line-height: 1.7;
+            line-height: 1.75;
             font-weight: 300;
         }
 
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            padding: 1.5rem 2rem;
+            padding: 1.25rem 2rem;
             display: flex;
             justify-content: space-between;
-            background: linear-gradient(to bottom, var(--paper), transparent);
+            background: rgba(250,250,246,0.92);
+            border-bottom: 1px solid var(--line);
             z-index: 100;
         }
 
         nav a {
             text-decoration: none;
             color: var(--ink);
-            font-size: 0.85rem;
-            letter-spacing: 1px;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
             margin-left: 1.5rem;
+            text-transform: uppercase;
         }
 
         nav a:hover {
             color: var(--moss);
         }
 
+        /* Hero */
         .hero {
             min-height: 100vh;
+            padding: 7rem 2rem 4rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
             background:
-                radial-gradient(circle at 30% 20%, rgba(63,111,94,0.06), transparent 40%),
-                radial-gradient(circle at 70% 80%, rgba(168,184,166,0.08), transparent 45%),
-                var(--paper);
+                radial-gradient(circle at 15% 20%, rgba(54,95,82,0.08), transparent 45%),
+                radial-gradient(circle at 85% 70%, rgba(159,178,164,0.12), transparent 45%);
         }
 
         .hero-content {
-            max-width: 900px;
-            text-align: center;
+            max-width: 860px;
         }
 
         .tagline {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--moss);
@@ -84,50 +88,54 @@
 
         h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-size: clamp(3rem, 6.5vw, 5.2rem);
             font-weight: 300;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.03em;
+            margin-bottom: 1.2rem;
         }
 
         .subtitle {
             font-size: 1.1rem;
-            max-width: 650px;
-            margin: 0 auto 2rem;
+            max-width: 620px;
             color: #444;
         }
 
         .hero-meta {
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            color: var(--moss);
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--soil);
         }
 
+        /* Sections */
         section {
-            max-width: 1100px;
+            max-width: 1050px;
             margin: 0 auto;
-            padding: 6rem 2rem;
+            padding: 5.5rem 2rem;
         }
 
         .section-header {
-            max-width: 700px;
+            max-width: 720px;
             margin-bottom: 3rem;
+            position: relative;
         }
 
-        .section-header::before {
+        .section-header::after {
             content: '';
-            display: block;
-            width: 40px;
-            height: 1px;
+            position: absolute;
+            left: 0;
+            bottom: -1.5rem;
+            width: 60px;
+            height: 2px;
             background: var(--moss);
-            margin-bottom: 1.5rem;
         }
 
         .section-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.3rem, 5vw, 3.8rem);
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
             font-weight: 400;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .section-description {
@@ -136,35 +144,36 @@
         }
 
         .text-block {
-            max-width: 750px;
+            max-width: 760px;
             margin-bottom: 2rem;
         }
 
+        /* Cards as specimen labels */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
             margin-top: 3rem;
         }
 
         .card {
             padding: 2rem;
             border: 1px solid var(--line);
-            background: transparent;
+            background: rgba(255,255,255,0.35);
+        }
+
+        .meta {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--moss);
+            margin-bottom: 0.75rem;
         }
 
         .card h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .card .meta {
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--moss);
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .card p {
@@ -186,14 +195,15 @@
             border-color: var(--moss);
         }
 
+        /* Stats like field measurements */
         .stats {
-            background: var(--ink);
+            background: #121514;
             color: var(--paper);
             padding: 4rem 2rem;
         }
 
         .stats-grid {
-            max-width: 1000px;
+            max-width: 950px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -203,29 +213,31 @@
 
         .stat-number {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
+            font-size: 3.4rem;
             font-weight: 300;
         }
 
         .stat-label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--lichen);
         }
 
+        /* Contact */
         .contact {
+            background:
+                linear-gradient(to bottom, var(--paper), #eceadf);
             text-align: center;
-            background: linear-gradient(to bottom, var(--paper), #ebe7df);
         }
 
         .contact a {
             display: inline-block;
             margin: 1rem;
-            padding: 0.9rem 2.2rem;
+            padding: 0.9rem 2.3rem;
             border: 1px solid var(--ink);
-            color: var(--ink);
             text-decoration: none;
+            color: var(--ink);
             font-size: 0.85rem;
             letter-spacing: 1px;
         }
@@ -236,10 +248,10 @@
         }
 
         footer {
+            background: #121514;
+            color: var(--lichen);
             text-align: center;
             padding: 3rem 2rem;
-            background: var(--ink);
-            color: var(--lichen);
             font-size: 0.8rem;
         }
 
@@ -273,7 +285,7 @@
         <h1>Viraj Rajendra Muthye</h1>
         <p class="subtitle">
             I design science communication through teaching, editorial practice,
-            and community engagement, grounded in biological research.
+            and community engagement, grounded in biology.
         </p>
         <p class="hero-meta">
             12 peer-reviewed publications • 10+ years teaching • 4K+ public audience
@@ -292,13 +304,12 @@
     <div class="text-block">
         From 2013 to 2019, I taught biology throughout my PhD as both a Primary Instructor
         and Teaching Assistant. Teaching in a new country and academic culture shaped how
-        I communicate science clearly, empathetically, and without assumptions about prior knowledge.
+        I communicate science clearly, empathetically, and without assumptions.
     </div>
 
     <div class="text-block">
-        In 2015, I received the Teaching Excellence Award in recognition of clear explanation,
-        inclusive pedagogy, and effective engagement with diverse learners. These skills now
-        directly inform my public-facing science communication work.
+        In 2015, I received the Teaching Excellence Award, recognising clear explanation,
+        inclusive pedagogy, and effective engagement with diverse learners.
     </div>
 </section>
 
@@ -306,40 +317,39 @@
     <div class="section-header">
         <h2 class="section-title">Public Communication Channels</h2>
         <p class="section-description">
-            Evidence of sustained engagement across multiple formats and audiences.
+            Sustained science communication across formats and audiences.
         </p>
     </div>
 
     <div class="grid">
         <div class="card">
-            <div class="meta">Newsletter • Editorial Practice</div>
-            <h3>Long-form Science Writing</h3>
+            <div class="meta">Editorial Practice</div>
+            <h3>Newsletter Writing</h3>
             <p>
-                Regular newsletter essays translating biology, biodiversity,
-                and academic life for non-specialist readers, informed by prior
-                departmental editorial leadership.
+                Long-form essays translating biology, biodiversity,
+                and academic culture for non-specialist audiences.
             </p>
-            <a href="https://substack.com/@virajmuthye" target="_blank">Read selected essays →</a>
+            <a href="https://substack.com/@virajmuthye" target="_blank">Read essays →</a>
         </div>
 
         <div class="card">
-            <div class="meta">Visual Communication</div>
-            <h3>Public-facing Science Media</h3>
+            <div class="meta">Visual Storytelling</div>
+            <h3>Public Science Media</h3>
             <p>
-                Visual storytelling focused on accessibility, curiosity,
-                and demystifying scientific culture for broad audiences.
+                Visual communication designed to invite curiosity
+                and lower barriers to scientific engagement.
             </p>
             <a href="https://instagram.com/awesomebiology" target="_blank">View profile →</a>
         </div>
 
         <div class="card">
             <div class="meta">Professional Archive</div>
-            <h3>Research & Communication Portfolio</h3>
+            <h3>Research & Outreach</h3>
             <p>
-                Long-form context for research background, outreach,
+                Context for research background, outreach work,
                 and professional experience.
             </p>
-            <a href="https://virajmuthye.weebly.com" target="_blank">Visit website →</a>
+            <a href="https://virajmuthye.weebly.com" target="_blank">Visit site →</a>
         </div>
     </div>
 </section>
@@ -352,11 +362,11 @@
         </div>
         <div>
             <div class="stat-number">10+</div>
-            <div class="stat-label">Years Teaching & Facilitation</div>
+            <div class="stat-label">Years Teaching</div>
         </div>
         <div>
             <div class="stat-number">4K+</div>
-            <div class="stat-label">Public Science Audience</div>
+            <div class="stat-label">Public Audience</div>
         </div>
         <div>
             <div class="stat-number">2015</div>
@@ -369,17 +379,17 @@
     <div class="section-header">
         <h2 class="section-title">Selected Science Communication</h2>
         <p class="section-description">
-            Examples of translating specialised biological research for general audiences.
+            Translating specialised biological research for general audiences.
         </p>
     </div>
 
     <div class="grid">
         <div class="card">
-            <div class="meta">Guest Publication</div>
+            <div class="meta">Guest Article</div>
             <h3>The Curious Case of Myxozoans</h3>
             <p>
-                Explains extreme biological simplification in parasitic animals
-                for a non-specialist readership.
+                Explaining extreme biological simplification in parasites
+                for non-specialist readers.
             </p>
             <a href="https://www.illinoisscience.org/blog/from-complex-to-simple-the-curious-case-of-myxozoans/" target="_blank">
                 Read article →
@@ -390,8 +400,8 @@
             <div class="meta">Editorial Leadership</div>
             <h3>Diversity Digest</h3>
             <p>
-                Conceptualised, edited, and designed a departmental newsletter
-                blending biodiversity, equity, and community-building.
+                Departmental newsletter blending biodiversity,
+                equity, and community-building.
             </p>
             <a href="https://virajmuthye.weebly.com/uploads/1/3/7/3/137312343/diversity_digest_spring_2019.pdf" target="_blank">
                 View newsletter →
@@ -404,15 +414,13 @@
     <div class="section-header">
         <h2 class="section-title">Public Engagement & Outreach</h2>
         <p class="section-description">
-            Hands-on science communication in community and informal learning spaces.
+            Hands-on science communication in community spaces.
         </p>
     </div>
 
     <div class="text-block">
         Designed and facilitated outreach activities for public audiences across Calgary,
-        including Fishtival, Alberta Biodiversity Festival, Ask-A-Scientist at the Calgary
-        Public Library, and IndigeSTEAM. Work includes activity design, material creation,
-        volunteer coordination, and stakeholder collaboration.
+        including Fishtival, Alberta Biodiversity Festival, Ask-A-Scientist, and IndigeSTEAM.
     </div>
 </section>
 
@@ -420,7 +428,7 @@
     <div class="section-header">
         <h2 class="section-title">Professional Contact</h2>
         <p class="section-description">
-            Available for science communication roles, fellowships, and collaborations.
+            Available for science communication roles and collaborations.
         </p>
     </div>
 
@@ -431,8 +439,7 @@
 <footer>
     © 2025 Viraj Rajendra Muthye •
     <a href="https://substack.com/@virajmuthye" target="_blank">Substack</a> •
-    <a href="https://instagram.com/awesomebiology" target="_blank">Instagram</a> •
-    <a href="https://virajmuthye.weebly.com" target="_blank">Website</a>
+    <a href="https://instagram.com/awesomebiology" target="_blank">Instagram</a>
 </footer>
 
 </body>
