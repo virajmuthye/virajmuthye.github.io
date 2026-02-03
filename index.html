@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viraj Rajendra Muthye - Science Communication Portfolio</title>
-    <meta name="description" content="Science communication portfolio of Viraj Rajendra Muthye - bridging data science, genomics, and biodiversity through accessible storytelling">
+    <title>Viraj Rajendra Muthye | Science Communication Portfolio</title>
+
+    <meta name="description" content="Science communication portfolio of Viraj Rajendra Muthye. Teaching-driven, audience-first science communication grounded in biology, editorial practice, and public engagement.">
+
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --noir: #0a0a0a;
-            --cream: #f9f7f4;
-            --accent: #2a5a4a;
-            --subtle: #d4cfc5;
-            --highlight: #8b4513;
+            --ink: #111413;
+            --paper: #fbfaf7;
+            --moss: #3f6f5e;
+            --lichen: #a8b8a6;
+            --soil: #6b5a45;
+            --line: #e3e1db;
         }
 
         * {
@@ -23,645 +27,413 @@
 
         body {
             font-family: 'Work Sans', sans-serif;
-            background-color: var(--cream);
-            color: var(--noir);
+            background: var(--paper);
+            color: var(--ink);
             line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding: 2rem;
-            background: linear-gradient(165deg, var(--cream) 0%, #ede8e0 100%);
-        }
-
-        .hero-content {
-            max-width: 900px;
-            text-align: center;
-            animation: fadeInUp 1.2s ease-out;
-        }
-
-        .tagline {
-            font-family: 'Work Sans', sans-serif;
-            font-size: 0.85rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-            opacity: 0;
-            animation: fadeIn 1s ease-out 0.3s forwards;
-        }
-
-        h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 300;
-            line-height: 1.1;
-            margin-bottom: 2rem;
-            color: var(--noir);
-            opacity: 0;
-            animation: fadeIn 1s ease-out 0.6s forwards;
         }
 
-        .subtitle {
-            font-size: 1.1rem;
-            color: #4a4a4a;
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            font-weight: 300;
-            opacity: 0;
-            animation: fadeIn 1s ease-out 0.9s forwards;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            animation: fadeIn 1s ease-out 1.2s forwards, float 2s ease-in-out infinite;
-        }
-
-        .scroll-indicator::after {
-            content: '↓';
-            font-size: 1.5rem;
-            color: var(--accent);
-        }
-
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            padding: 2rem;
+            padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            background: linear-gradient(to bottom, var(--paper), transparent);
             z-index: 100;
-            background: linear-gradient(to bottom, var(--cream) 0%, transparent 100%);
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
+        nav a {
             text-decoration: none;
-            color: var(--noir);
-            font-size: 0.9rem;
+            color: var(--ink);
+            font-size: 0.85rem;
             letter-spacing: 1px;
-            transition: color 0.3s ease;
-            font-weight: 400;
+            margin-left: 1.5rem;
         }
 
-        .nav-links a:hover {
-            color: var(--accent);
+        nav a:hover {
+            color: var(--moss);
         }
 
-        /* Section Styling */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background:
+                radial-gradient(circle at 30% 20%, rgba(63,111,94,0.06), transparent 40%),
+                radial-gradient(circle at 70% 80%, rgba(168,184,166,0.08), transparent 45%),
+                var(--paper);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .tagline {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--moss);
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 2rem;
+            color: #444;
+        }
+
+        .hero-meta {
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: var(--moss);
+        }
+
         section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
+            padding: 6rem 2rem;
         }
 
         .section-header {
-            margin-bottom: 4rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease;
+            max-width: 700px;
+            margin-bottom: 3rem;
         }
 
-        .section-header.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
+        .section-header::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: var(--moss);
+            margin-bottom: 1.5rem;
         }
 
         .section-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.3rem, 5vw, 3.8rem);
             font-weight: 400;
-            color: var(--noir);
             margin-bottom: 1rem;
         }
 
         .section-description {
-            font-size: 1.05rem;
-            color: #6a6a6a;
-            max-width: 700px;
-            font-weight: 300;
+            font-size: 1rem;
+            color: #555;
         }
 
-        /* Platform Grid */
-        .platform-grid {
+        .text-block {
+            max-width: 750px;
+            margin-bottom: 2rem;
+        }
+
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .platform-card {
-            background: white;
-            padding: 2.5rem;
-            border: 1px solid var(--subtle);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .platform-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .platform-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .platform-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .platform-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        }
-
-        .platform-icon {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .platform-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .platform-meta {
-            font-size: 0.85rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .platform-description {
-            font-size: 0.95rem;
-            color: #5a5a5a;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .platform-link {
-            display: inline-block;
-            font-size: 0.9rem;
-            color: var(--noir);
-            text-decoration: none;
-            border-bottom: 1px solid var(--noir);
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .platform-link:hover {
-            color: var(--accent);
-            border-color: var(--accent);
-        }
-
-        /* Publications Section */
-        .publications-grid {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .publication-item {
+        .card {
             padding: 2rem;
-            background: white;
-            border-left: 3px solid var(--subtle);
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateX(-20px);
+            border: 1px solid var(--line);
+            background: transparent;
         }
 
-        .publication-item.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .publication-item:hover {
-            border-left-color: var(--accent);
-            background: #fafaf8;
-        }
-
-        .pub-category {
-            font-size: 0.75rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0.75rem;
-        }
-
-        .pub-title {
+        .card h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
+            font-size: 1.6rem;
             margin-bottom: 0.5rem;
-            font-weight: 600;
         }
 
-        .pub-meta {
-            font-size: 0.9rem;
-            color: #7a7a7a;
+        .card .meta {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--moss);
             margin-bottom: 1rem;
         }
 
-        .pub-link {
+        .card p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .card a {
             display: inline-block;
+            margin-top: 1rem;
             font-size: 0.85rem;
-            color: var(--noir);
+            color: var(--ink);
             text-decoration: none;
-            border-bottom: 1px solid var(--noir);
-            transition: all 0.3s ease;
-            margin-top: 0.5rem;
+            border-bottom: 1px solid var(--ink);
         }
 
-        .pub-link:hover {
-            color: var(--accent);
-            border-color: var(--accent);
+        .card a:hover {
+            color: var(--moss);
+            border-color: var(--moss);
         }
 
-        /* Stats Section */
-        .stats-container {
+        .stats {
+            background: var(--ink);
+            color: var(--paper);
+            padding: 4rem 2rem;
+        }
+
+        .stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 3rem;
-            margin-top: 4rem;
-            padding: 4rem 2rem;
-            background: var(--noir);
-            color: var(--cream);
-        }
-
-        .stat-item {
             text-align: center;
-            opacity: 0;
-            transform: scale(0.9);
-        }
-
-        .stat-item.visible {
-            animation: popIn 0.6s ease forwards;
         }
 
         .stat-number {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 300;
-            color: var(--cream);
-            margin-bottom: 0.5rem;
         }
 
         .stat-label {
-            font-size: 0.9rem;
-            text-transform: uppercase;
+            font-size: 0.8rem;
             letter-spacing: 2px;
-            color: var(--subtle);
+            text-transform: uppercase;
+            color: var(--lichen);
         }
 
-        /* Contact Section */
-        .contact-section {
+        .contact {
             text-align: center;
-            padding: 8rem 2rem;
-            background: linear-gradient(to bottom, var(--cream), #e8e3d9);
+            background: linear-gradient(to bottom, var(--paper), #ebe7df);
         }
 
-        .contact-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .contact-links {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 3rem;
-        }
-
-        .contact-btn {
-            padding: 1rem 2.5rem;
-            background: var(--noir);
-            color: var(--cream);
+        .contact a {
+            display: inline-block;
+            margin: 1rem;
+            padding: 0.9rem 2.2rem;
+            border: 1px solid var(--ink);
+            color: var(--ink);
             text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            border: 2px solid var(--noir);
-        }
-
-        .contact-btn:hover {
-            background: transparent;
-            color: var(--noir);
-        }
-
-        .contact-btn.secondary {
-            background: transparent;
-            color: var(--noir);
-        }
-
-        .contact-btn.secondary:hover {
-            background: var(--noir);
-            color: var(--cream);
-        }
-
-        /* Footer */
-        footer {
-            padding: 3rem 2rem;
-            text-align: center;
-            background: var(--noir);
-            color: var(--subtle);
             font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .contact a:hover {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--ink);
+            color: var(--lichen);
+            font-size: 0.8rem;
         }
 
         footer a {
-            color: var(--subtle);
+            color: var(--lichen);
             text-decoration: none;
-            transition: color 0.3s ease;
         }
 
         footer a:hover {
-            color: var(--cream);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(-50%, 0); }
-            50% { transform: translate(-50%, 10px); }
-        }
-
-        @keyframes popIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            60% {
-                transform: scale(1.05);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1.5rem;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            .platform-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-                padding: 3rem 1rem;
-            }
-
-            section {
-                padding: 4rem 1.5rem;
-            }
+            color: var(--paper);
         }
     </style>
 </head>
+
 <body>
-    <nav>
-        <div class="logo"></div>
-        <ul class="nav-links">
-            <li><a href="#platforms">Platforms</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#writing">Writing</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="tagline">Science Communication</div>
-            <h1>Viraj Muthye</h1>
-            <h2>Science, Story, Community</h2>
-            <p class="subtitle">Evidence-based, audience-first storytelling</p>
-        </div>
-        <div class="scroll-indicator"></div>
-    </section>
+<nav>
+    <div></div>
+    <div>
+        <a href="#teaching">Teaching</a>
+        <a href="#channels">Channels</a>
+        <a href="#writing">Writing</a>
+        <a href="#outreach">Outreach</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
 
-    <section id="platforms">
-        <div class="section-header">
-            <div class="section-number">01</div>
-            <h2 class="section-title">Active Platforms</h2>
-            <p class="section-description">Where I connect with audiences through storytelling, education, and authentic conversation</p>
-        </div>
+<section class="hero">
+    <div class="hero-content">
+        <div class="tagline">Science Communication Portfolio</div>
+        <h1>Viraj Rajendra Muthye</h1>
+        <p class="subtitle">
+            I design science communication through teaching, editorial practice,
+            and community engagement, grounded in biological research.
+        </p>
+        <p class="hero-meta">
+            12 peer-reviewed publications • 10+ years teaching • 4K+ public audience
+        </p>
+    </div>
+</section>
 
-        <div class="platform-grid">
-            <div class="platform-card">
-                <div class="platform-icon">📝</div>
-                <h3 class="platform-title">Substack Newsletter</h3>
-                <div class="platform-meta">Active Publication</div>
-                <p class="platform-description">Regular insights on science communication, biodiversity conservation, graduate student experiences, and mental health in academia</p>
-                <a href="https://substack.com/@virajmuthye" target="_blank" rel="noopener noreferrer" class="platform-link">Read Newsletter →</a>
-            </div>
-
-            <div class="platform-card" style="animation-delay: 0.1s">
-                <div class="platform-icon">📱</div>
-                <h3 class="platform-title">Instagram</h3>
-                <div class="platform-meta">~4,000 Followers</div>
-                <p class="platform-description">Visual storytelling focused on science communication, mental health advocacy, and demystifying academic culture</p>
-                <a href="https://instagram.com/awesomebiology" target="_blank" rel="noopener noreferrer" class="platform-link">View Profile →</a>
-            </div>
-
-            <div class="platform-card" style="animation-delay: 0.2s">
-                <div class="platform-icon">🌐</div>
-                <h3 class="platform-title">Personal Website</h3>
-                <div class="platform-meta">Full Portfolio</div>
-                <p class="platform-description">Comprehensive overview of research, publications, and professional experience</p>
-                <a href="https://virajmuthye.weebly.com" target="_blank" rel="noopener noreferrer" class="platform-link">Visit Website →</a>
-            </div>
-        </div>
-    </section>
-
-    <div class="stats-container">
-        <div class="stat-item">
-            <div class="stat-number">12</div>
-            <div class="stat-label">Peer-Reviewed Articles</div>
-        </div>
-        <div class="stat-item" style="animation-delay: 0.1s">
-            <div class="stat-number">8</div>
-            <div class="stat-label">First-Author Papers</div>
-        </div>
-        <div class="stat-item" style="animation-delay: 0.2s">
-            <div class="stat-number">~4K</div>
-            <div class="stat-label">Social Followers</div>
-        </div>
-        <div class="stat-item" style="animation-delay: 0.3s">
-            <div class="stat-number">1</div>
-            <div class="stat-label">Published Poetry Book</div>
-        </div>
+<section id="teaching">
+    <div class="section-header">
+        <h2 class="section-title">Teaching & Learning Design</h2>
+        <p class="section-description">
+            Teaching as the foundation of my science communication practice.
+        </p>
     </div>
 
-    <section id="writing">
-        <div class="section-header">
-            <div class="section-number">02</div>
-            <h2 class="section-title">Featured Writing</h2>
-            <p class="section-description">Selected works across platforms and publications</p>
+    <div class="text-block">
+        From 2013 to 2019, I taught biology throughout my PhD as both a Primary Instructor
+        and Teaching Assistant. Teaching in a new country and academic culture shaped how
+        I communicate science clearly, empathetically, and without assumptions about prior knowledge.
+    </div>
+
+    <div class="text-block">
+        In 2015, I received the Teaching Excellence Award in recognition of clear explanation,
+        inclusive pedagogy, and effective engagement with diverse learners. These skills now
+        directly inform my public-facing science communication work.
+    </div>
+</section>
+
+<section id="channels">
+    <div class="section-header">
+        <h2 class="section-title">Public Communication Channels</h2>
+        <p class="section-description">
+            Evidence of sustained engagement across multiple formats and audiences.
+        </p>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="meta">Newsletter • Editorial Practice</div>
+            <h3>Long-form Science Writing</h3>
+            <p>
+                Regular newsletter essays translating biology, biodiversity,
+                and academic life for non-specialist readers, informed by prior
+                departmental editorial leadership.
+            </p>
+            <a href="https://substack.com/@virajmuthye" target="_blank">Read selected essays →</a>
         </div>
 
-        <div class="publications-grid">
-            <div class="publication-item">
-                <div class="pub-category">Guest Publication</div>
-                <h3 class="pub-title">From Complex to Simple: the Curious Case of Myxozoans</h3>
-                <p class="pub-meta">Published on Illinois Science Council Blog</p>
-                <a href="https://www.illinoisscience.org/blog/from-complex-to-simple-the-curious-case-of-myxozoans/" target="_blank" rel="noopener noreferrer" class="pub-link">Read Article →</a>
-            </div>
-
-            <div class="publication-item">
-                <div class="pub-category">Guest Publication</div>
-                <h3 class="pub-title">The HPI Bootcamp – A Postdoc's Perspective</h3>
-                <p class="pub-meta">Published on The Parasite Blog</p>
-                <a href="https://theparasiteblog.wordpress.com/2022/11/22/the-hpi-bootcamp-a-postdocs-perspective/" target="_blank" rel="noopener noreferrer" class="pub-link">Read Article →</a>
-            </div>
-
-            <div class="publication-item">
-                <div class="pub-category">Poetry</div>
-                <h3 class="pub-title">Humpty Dumpty's Great Fall</h3>
-                <p class="pub-meta">Full-length poetry collection published in English</p>
-            </div>
-
-            <div class="publication-item">
-                <div class="pub-category">Blog Essays</div>
-                <h3 class="pub-title">Original Essays & Reflections</h3>
-                <p class="pub-meta">Ongoing explorations on science, society, and the academic journey</p>
-                <a href="https://substack.com/@virajmuthye" target="_blank" rel="noopener noreferrer" class="pub-link">Browse Articles →</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="research">
-        <div class="section-header">
-            <div class="section-number">03</div>
-            <h2 class="section-title">Academic Research</h2>
-            <p class="section-description">Peer-reviewed contributions to the scientific literature</p>
+        <div class="card">
+            <div class="meta">Visual Communication</div>
+            <h3>Public-facing Science Media</h3>
+            <p>
+                Visual storytelling focused on accessibility, curiosity,
+                and demystifying scientific culture for broad audiences.
+            </p>
+            <a href="https://instagram.com/awesomebiology" target="_blank">View profile →</a>
         </div>
 
-        <div class="publications-grid">
-            <div class="publication-item">
-                <div class="pub-category">Research Publications</div>
-                <h3 class="pub-title">12 Peer-Reviewed Articles</h3>
-                <p class="pub-meta">8 as first author • Research areas: Data Science, Genomics, Phylogenetics, Evolution</p>
-            </div>
+        <div class="card">
+            <div class="meta">Professional Archive</div>
+            <h3>Research & Communication Portfolio</h3>
+            <p>
+                Long-form context for research background, outreach,
+                and professional experience.
+            </p>
+            <a href="https://virajmuthye.weebly.com" target="_blank">Visit website →</a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="contact-section" id="contact">
-        <div class="contact-title">Let's Connect</div>
-        <p class="section-description" style="margin: 0 auto 2rem;">Interested in collaboration, guest writing, or science communication projects?</p>
-        
-        <div class="contact-links">
-            <a href="mailto:viraj.muthye@gmail.com" class="contact-btn">Email Me</a>
-            <a href="https://virajmuthye.weebly.com" target="_blank" rel="noopener noreferrer" class="contact-btn secondary">Visit Full Website</a>
+<div class="stats">
+    <div class="stats-grid">
+        <div>
+            <div class="stat-number">12</div>
+            <div class="stat-label">Peer-Reviewed Publications</div>
         </div>
-    </section>
+        <div>
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Years Teaching & Facilitation</div>
+        </div>
+        <div>
+            <div class="stat-number">4K+</div>
+            <div class="stat-label">Public Science Audience</div>
+        </div>
+        <div>
+            <div class="stat-number">2015</div>
+            <div class="stat-label">Teaching Excellence Award</div>
+        </div>
+    </div>
+</div>
 
-    <footer>
-        <p>&copy; 2025 Viraj Rajendra Muthye • <a href="https://substack.com/@virajmuthye" target="_blank" rel="noopener noreferrer">Substack</a> • <a href="https://instagram.com/awesomebiology" target="_blank" rel="noopener noreferrer">Instagram</a> • <a href="https://virajmuthye.weebly.com" target="_blank" rel="noopener noreferrer">Website</a></p>
-    </footer>
+<section id="writing">
+    <div class="section-header">
+        <h2 class="section-title">Selected Science Communication</h2>
+        <p class="section-description">
+            Examples of translating specialised biological research for general audiences.
+        </p>
+    </div>
 
-    <script>
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+    <div class="grid">
+        <div class="card">
+            <div class="meta">Guest Publication</div>
+            <h3>The Curious Case of Myxozoans</h3>
+            <p>
+                Explains extreme biological simplification in parasitic animals
+                for a non-specialist readership.
+            </p>
+            <a href="https://www.illinoisscience.org/blog/from-complex-to-simple-the-curious-case-of-myxozoans/" target="_blank">
+                Read article →
+            </a>
+        </div>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+        <div class="card">
+            <div class="meta">Editorial Leadership</div>
+            <h3>Diversity Digest</h3>
+            <p>
+                Conceptualised, edited, and designed a departmental newsletter
+                blending biodiversity, equity, and community-building.
+            </p>
+            <a href="https://virajmuthye.weebly.com/uploads/1/3/7/3/137312343/diversity_digest_spring_2019.pdf" target="_blank">
+                View newsletter →
+            </a>
+        </div>
+    </div>
+</section>
 
-        // Observe all animated elements
-        document.querySelectorAll('.section-header, .platform-card, .publication-item, .stat-item').forEach(el => {
-            observer.observe(el);
-        });
+<section id="outreach">
+    <div class="section-header">
+        <h2 class="section-title">Public Engagement & Outreach</h2>
+        <p class="section-description">
+            Hands-on science communication in community and informal learning spaces.
+        </p>
+    </div>
 
-        // Smooth scroll for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+    <div class="text-block">
+        Designed and facilitated outreach activities for public audiences across Calgary,
+        including Fishtival, Alberta Biodiversity Festival, Ask-A-Scientist at the Calgary
+        Public Library, and IndigeSTEAM. Work includes activity design, material creation,
+        volunteer coordination, and stakeholder collaboration.
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <div class="section-header">
+        <h2 class="section-title">Professional Contact</h2>
+        <p class="section-description">
+            Available for science communication roles, fellowships, and collaborations.
+        </p>
+    </div>
+
+    <a href="mailto:virajrajendra.muthye@ucalgary.ca">Email for professional inquiries</a>
+    <a href="https://virajmuthye.weebly.com" target="_blank">Full academic website</a>
+</section>
+
+<footer>
+    © 2025 Viraj Rajendra Muthye •
+    <a href="https://substack.com/@virajmuthye" target="_blank">Substack</a> •
+    <a href="https://instagram.com/awesomebiology" target="_blank">Instagram</a> •
+    <a href="https://virajmuthye.weebly.com" target="_blank">Website</a>
+</footer>
+
 </body>
 </html>
