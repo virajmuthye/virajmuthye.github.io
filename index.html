@@ -9,19 +9,17 @@
     @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
 
     :root {
-        --bg: #f0f5ef;          /* soft off-white, natural */
-        --ink: #000000;         /* body text */
-        --accent: #4a8264;      /* muted leaf green for links */
-        --soft: #dbe6da;        /* pale green-grey for borders */
-        --muted: #6b7a6f;       /* earthy grey-green for secondary text */
-        --card-bg: #f7faf6;     /* subtle leafy off-white for cards */
-        --card-shadow: rgba(74, 130, 100, 0.15); /* soft green shadow */
-
-        /* Ecological accents */
-        --heading-green: #336b4b;  /* rich forest green for headings */
-        --heading-brown: #7a5a3c;  /* earthy brown for subheadings/cards */
-        --link-hover: #38674f;     /* darker leaf green */
-        --accent-water: #4a90a5;   /* subtle water blue for minor highlights */
+        --bg: #f0f5ef;
+        --ink: #000000;
+        --accent: #4a8264;
+        --soft: #dbe6da;
+        --muted: #6b7a6f;
+        --card-bg: #f7faf6;
+        --card-shadow: rgba(74, 130, 100, 0.15);
+        --heading-green: #336b4b;
+        --heading-brown: #7a5a3c;
+        --link-hover: #38674f;
+        --accent-water: #4a90a5;
     }
 
     * {
@@ -90,6 +88,51 @@
         border: none;
         padding-top: 0;
         margin-top: 0;
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+
+    .hero-photo {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--accent);
+        box-shadow: 0 4px 12px var(--card-shadow);
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-highlight {
+        background: linear-gradient(135deg, var(--card-bg) 0%, #e8f3e7 100%);
+        padding: 1.5rem;
+        border-radius: 10px;
+        border-left: 4px solid var(--accent);
+        margin: 1rem 0;
+        box-shadow: 0 3px 10px var(--card-shadow);
+    }
+
+    .hero-highlight p {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin: 0.5rem 0;
+    }
+
+    .hero-highlight p:first-child {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--heading-green);
+    }
+
+    .hero-highlight p:last-child {
+        font-style: italic;
+        color: var(--heading-brown);
+        margin-top: 0.8rem;
     }
 
     .hero-meta {
@@ -124,6 +167,65 @@
         font-size: 0.9rem;
     }
 
+    /* Project cards with images */
+    .project-card {
+        background: var(--card-bg);
+        border-radius: 10px;
+        border: 1px solid var(--soft);
+        box-shadow: 0 3px 10px var(--card-shadow);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        overflow: hidden;
+    }
+
+    .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 16px rgba(74, 130, 100, 0.25);
+    }
+
+    .project-card-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-bottom: 2px solid var(--soft);
+    }
+
+    .project-card-content {
+        padding: 1.2rem;
+    }
+
+    .project-card h3 {
+        margin-bottom: 0.8rem;
+    }
+
+    .project-card ul {
+        margin: 0;
+        padding-left: 1.2rem;
+        list-style-type: disc;
+    }
+
+    .project-card li {
+        margin: 0.5rem 0;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    /* Section with photos */
+    .section-photos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: 1rem 0;
+    }
+
+    .section-photo {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid var(--soft);
+        box-shadow: 0 2px 6px var(--card-shadow);
+    }
+
     .tagline {
         font-style: italic;
         color: var(--muted);
@@ -137,6 +239,27 @@
         font-size: 0.8rem;
         color: var(--muted);
     }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .hero {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .hero-photo {
+            margin: 0 auto;
+        }
+
+        .section-photos {
+            grid-template-columns: 1fr;
+        }
+
+        .grid {
+            grid-template-columns: 1fr;
+        }
+    }
     </style>
 </head>
 
@@ -145,21 +268,83 @@
 
     <!-- HERO -->
     <section class="hero">
-        <h1>Viraj Rajendra Muthye, Ph.D.</h1>
-        <p class="tagline">
-            Science Communication through Teaching, Editorial Practice, and Community Engagement.
-        </p>
-        <p class="hero-meta">
-            Founder, Creative Science Alliance • Teaching Excellence Award • PhD-trained Bioinformatician
-        </p>
-        <p class="hero-meta" style="margin-top:0.4rem; font-style:normal;">
-            Currently seeking opportunities for collaboration and science communication roles.
-        </p>
+        <img src="profile-photo.jpg" alt="Viraj Muthye" class="hero-photo">
+        
+        <div class="hero-content">
+            <h1>Viraj Rajendra Muthye, Ph.D.</h1>
+            
+            <div class="hero-highlight">
+                <p>Science Communication through Teaching, Editorial Practice, and Community Engagement.</p>
+                <p>Founder, Creative Science Alliance • Teaching Excellence Award • PhD-trained Bioinformatician</p>
+                <p>Currently seeking opportunities for collaboration and science communication roles.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS / CASE STUDIES -->
+    <section>
+        <h2>Featured Projects & Case Studies</h2>
+        
+        <div class="grid">
+            <div class="project-card">
+                <img src="project1.jpg" alt="Project 1" class="project-card-image">
+                <div class="project-card-content">
+                    <h3>Biodiversity STEAM Camps</h3>
+                    <ul>
+                        <li>Designed hyper-local ecology programs for 50+ children annually</li>
+                        <li>Integrated Indigenous knowledge and Calgary watershed ecology</li>
+                        <li>Achieved 95% positive feedback from families and educators</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="project2.jpg" alt="Project 2" class="project-card-image">
+                <div class="project-card-content">
+                    <h3>Diversity Digest Newsletter</h3>
+                    <ul>
+                        <li>Founded and edited departmental science newsletter reaching 500+ students</li>
+                        <li>Highlighted biodiversity examples to enhance lecture engagement</li>
+                        <li>Mentored student contributors in science writing and visual design</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="project3.jpg" alt="Project 3" class="project-card-image">
+                <div class="project-card-content">
+                    <h3>Ask-A-Scientist Public Events</h3>
+                    <ul>
+                        <li>Led interactive Q&A sessions at libraries and community centers</li>
+                        <li>Translated complex genomics concepts for diverse audiences</li>
+                        <li>Facilitated meaningful dialogue between researchers and public</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="project4.jpg" alt="Project 4" class="project-card-image">
+                <div class="project-card-content">
+                    <h3>Inclusive Biology Teaching</h3>
+                    <ul>
+                        <li>Received Teaching Excellence Award for inclusive pedagogy (2015)</li>
+                        <li>Developed active learning modules for diverse student backgrounds</li>
+                        <li>Taught 1,000+ students across biology and bioinformatics courses</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- TEACHING -->
     <section>
         <h2>Teaching & Learning Design</h2>
+        
+        <div class="section-photos">
+            <img src="teaching1.jpg" alt="Teaching moment" class="section-photo">
+            <img src="teaching2.jpg" alt="Classroom engagement" class="section-photo">
+        </div>
+        
         <p>
             Teaching and communication are inseparable. From 2013 to 2019, I taught biology as both a Primary
             Instructor and Teaching Assistant during my PhD at Iowa State University in the USA. Teaching in a 
@@ -180,6 +365,12 @@
     <!-- CSA -->
     <section>
         <h2>Creative Science Alliance</h2>
+        
+        <div class="section-photos">
+            <img src="csa1.jpg" alt="CSA outreach activity" class="section-photo">
+            <img src="csa2.jpg" alt="Community engagement" class="section-photo">
+        </div>
+        
         <p>
             I founded the Creative Science Alliance (CSA) to design hands-on, hyper-local STEAM
             outreach rooted in local ecology and community contexts in Calgary.
@@ -199,12 +390,18 @@
     <!-- EDITORIAL -->
     <section>
         <h2>Editorial & Newsletter Leadership</h2>
+        
+        <div class="section-photos">
+            <img src="editorial1.jpg" alt="Newsletter design" class="section-photo">
+            <img src="editorial2.jpg" alt="Editorial work" class="section-photo">
+        </div>
+        
         <p>
             I have served as a departmental Newsletter Coordinator at Iowa State University, conceptualising, editing, 
             and designing recurring science newsletters that integrated biology, equity, and community-building. 
             I founded and maintained <em>Diversity Digest</em>, which highlighted fascinating examples of biodiversity to 
             enhance engagement with course content in lectures and labs. Students also contributed to this newsletter.
-            Additionally, I managed <em>2-1-1</em>, connecting laboratory and lecture sections of Biology 211 to improve students’ 
+            Additionally, I managed <em>2-1-1</em>, connecting laboratory and lecture sections of Biology 211 to improve students' 
             overall learning experience.
         </p>
         <p>
@@ -258,6 +455,12 @@
     <!-- OUTREACH -->
     <section>
         <h2>Public Engagement & Outreach</h2>
+        
+        <div class="section-photos">
+            <img src="outreach1.jpg" alt="Public engagement event" class="section-photo">
+            <img src="outreach2.jpg" alt="Community outreach" class="section-photo">
+        </div>
+        
         <p>
             I design and lead hands-on science engagement initiatives that spark curiosity and inclusivity. 
             My outreach work spans Canada and the USA, including biodiversity festivals, library programs, Ask-A-Scientist events, 
@@ -277,6 +480,12 @@
     <!-- OPPORTUNITIES -->
     <section>
         <h2>Opportunities & Collaborations</h2>
+        
+        <div class="section-photos">
+            <img src="collab1.jpg" alt="Collaboration opportunity" class="section-photo">
+            <img src="collab2.jpg" alt="Partnership work" class="section-photo">
+        </div>
+        
         <p>
             I am open to collaborations, consulting, guest lectures, STEAM program development, and other 
             science communication roles. If you are interested in partnering or discussing opportunities, 
@@ -290,6 +499,12 @@
     <!-- CREDIBILITY -->
     <section>
         <h2>Scientific Credibility</h2>
+        
+        <div class="section-photos">
+            <img src="research1.jpg" alt="Research work" class="section-photo">
+            <img src="research2.jpg" alt="Scientific publication" class="section-photo">
+        </div>
+        
         <p>
             PhD-trained bioinformatician with 12 peer-reviewed publications (8 first-author)
             in genomics, evolution, and parasitology.
