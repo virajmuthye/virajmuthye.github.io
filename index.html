@@ -107,10 +107,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
         }
-
-        /* RESPONSIVE HERO */
 
         @media (max-width: 700px) {
             .hero {
@@ -124,11 +121,41 @@
             }
         }
 
+        /* SECTION LAYOUT */
+
+        .section-layout {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 2rem;
+            align-items: start;
+            margin-top: 0.8rem;
+        }
+
+        .section-layout.reverse {
+            grid-template-columns: 420px 1fr;
+        }
+
+        .section-photo {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid var(--soft);
+        }
+
+        @media (max-width: 800px) {
+            .section-layout,
+            .section-layout.reverse {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* GRID CARDS */
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 1.2rem;
-            margin-top: 0.8rem;
+            margin-top: 1rem;
         }
 
         .card {
@@ -138,16 +165,6 @@
             border: 1px solid var(--soft);
         }
 
-        .card p {
-            font-size: 0.9rem;
-        }
-
-        .tagline {
-            font-style: italic;
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
         footer {
             margin-top: 3rem;
             padding-top: 1.2rem;
@@ -155,15 +172,6 @@
             font-size: 0.8rem;
             color: var(--muted);
         }
-        .section-photo {
-    width: 100%;
-    max-width: 420px;
-    height: auto;
-    border-radius: 6px;
-    margin: 0.8rem 0 1rem;
-    border: 1px solid var(--soft);
-}
-
     </style>
 </head>
 
@@ -190,170 +198,154 @@
     <!-- ABOUT -->
     <section>
         <h2>About Me</h2>
-        <img src="aboutme.jpg" alt="Viraj facilitating a community science workshop" class="section-photo">
-        <p>
-            Community, Connection, and Communication are the core of all of my endeavours.
-            Science becomes meaningful when it is shared, questioned, and experienced together. 
-            My work focuses on building spaces where people can encounter science with
-            curiosity rather than intimidation.
-            Through workshops, public events, and creative outreach, I collaborate with communities,
-            educators, and institutions to make science and arts outreach and education accessible, 
-            relational, and rooted in place.
-        </p>
+        <div class="section-layout">
+            <div>
+                <p>
+                    Community, Connection, and Communication are the core of all of my endeavours.
+                    Science becomes meaningful when it is shared, questioned, and experienced together.
+                </p>
+                <p>
+                    My work focuses on building spaces where people can encounter science with curiosity
+                    rather than intimidation.
+                </p>
+            </div>
+            <img src="aboutme.jpg" alt="Community science workshop" class="section-photo">
+        </div>
+    </section>
 
+    <!-- TEACHING -->
+    <section>
         <h2>Teaching & Learning Design</h2>
-        <p>
-            Teaching remains the foundation of my science communication practice.
-            From 2013 to 2019, I taught introductory biology courses as a Primary Instructor
-            and Teaching Assistant at Iowa State University.
-            Teaching in a new country significantly shaped how I communicate science
-            clearly, empathetically, and without assumptions about prior knowledge.
-            In many ways, my students taught me a lot and for that I will always be grateful.
-            I continued teaching after moving to Canada, through invited guest lectures
-            in bioinformatics, biology, and parasitology.
-        </p>
-        <p>
-            I received the Teaching Excellence Award in 2015 for inclusive pedagogy and effective
-            explanation of complex biological concepts.
-        </p>
-        <h2>Teaching & Learning Design</h2>
-            <img src="teaching.jpeg" alt="Viraj teaching or lecturing students" class="section-photo">
+        <div class="section-layout reverse">
+            <img src="teaching.jpg" alt="Teaching biology students" class="section-photo">
+            <div>
+                <p>
+                    Teaching remains the foundation of my science communication practice.
+                    I taught introductory biology at Iowa State University from 2013 to 2019.
+                </p>
+                <p>
+                    Teaching in a new country shaped how I communicate science clearly,
+                    empathetically, and without assumptions about prior knowledge.
+                </p>
+            </div>
+        </div>
     </section>
 
     <!-- CSA -->
     <section>
         <h2>Creative Science Alliance</h2>
-        <p>
-            I founded the Creative Science Alliance (CSA) to design hands-on, Calgary-based STEAM
-            outreach rooted in local ecology and community contexts.
-            My goal is to create a community of local scientists, artists, communicators,
-            and change-makers to make science and arts education and outreach accessible
-            and engaging in Calgary.
-        </p>
-        <h2>Creative Science Alliance</h2>
-        <img src="csa.jpeg" alt="Children participating in Creative Science Alliance activities" class="section-photo">
-
-        <p>
-            Arts and Science are two sides of the same coin and neither can be learnt or experienced
-            in isolation.
-            Through CSA, I want to help Calgarians connect with the city by focusing not only on
-            observing and learning about our environment, but also on how this learning feels.
-            We may not remember what we learned in second grade, but we most likely remember how that
-            experience made us feel - and these feelings are a significant reason that made us who 
-            we are.
-            At CSA, we encourage participants to focus equally on learning and feeling.
-        </p>
-        <p>
-            <a href="https://creativesciencealliance.weebly.com/" target="_blank">
-                Visit Creative Science Alliance to know more →
-            </a>
-        </p>
+        <div class="section-layout">
+            <div>
+                <p>
+                    I founded the Creative Science Alliance to design hands-on,
+                    Calgary-based STEAM outreach rooted in local ecology.
+                </p>
+                <p>
+                    Arts and science are two sides of the same coin and neither can be
+                    experienced in isolation.
+                </p>
+                <p>
+                    <a href="https://creativesciencealliance.weebly.com/" target="_blank">
+                        Visit Creative Science Alliance →
+                    </a>
+                </p>
+            </div>
+            <img src="csa.jpg" alt="CSA outreach activities" class="section-photo">
+        </div>
     </section>
 
     <!-- EDITORIAL -->
     <section>
         <h2>Editorial & Newsletter Leadership</h2>
-        <p>
-            I am passionate about designing newsletters and websites.
-            As the Departmental Newsletter Coordinator at Iowa State University,
-            I maintained the "2-1-1" newsletter to connect lecture and lab sections
-            and improve the overall student experience.
-        </p>
-        <p>
-            Additionally, I founded and maintained a monthly newsletter called "Diversity Digest",
-            which shared stories of biodiversity to increase student engagement.
-            Students regularly contributed articles to the newsletter.
-            While I started this newsletter for my sections, this newsletter was later shared across 
-            all sections in the course.
-        </p>
-        <p>
-            <a href="https://virajmuthye.weebly.com/uploads/1/3/7/3/137312343/diversity_digest_spring_2019.pdf"
-               target="_blank">
-                View an example of the "Diversity Digest" newsletter →
-            </a>
-        </p>
+        <div class="section-layout reverse">
+            <img src="newsletter.jpg" alt="Newsletter design work" class="section-photo">
+            <div>
+                <p>
+                    I am passionate about designing newsletters and websites.
+                    As a departmental newsletter coordinator, I maintained the 2-1-1 newsletter.
+                </p>
+                <p>
+                    I also founded Diversity Digest, a student-contributed biodiversity newsletter
+                    shared across multiple course sections.
+                </p>
+            </div>
+        </div>
     </section>
 
     <!-- CHANNELS -->
     <section>
         <h2>Public Communication Channels</h2>
+        <div class="section-layout">
+            <div class="grid">
+                <div class="card">
+                    <h3>Newsletter Writing</h3>
+                    <p>
+                        Long-form, reflective science writing.
+                    </p>
+                    <p>
+                        <a href="https://virajmuthye.substack.com/" target="_blank">Substack →</a>
+                    </p>
+                </div>
 
-        <div class="grid">
-            <div class="card">
-                <h3>Newsletter Writing</h3>
-                <p>
-                    Long-form, reflective science writing informed by prior editorial leadership.
-                </p>
-                <p>
-                    <a href="https://virajmuthye.substack.com/" target="_blank">Substack →</a>
-                </p>
+                <div class="card">
+                    <h3>Visual Science Communication</h3>
+                    <p>
+                        Short-form visual science storytelling.
+                    </p>
+                    <p>
+                        <a href="https://www.instagram.com/awesomebiology" target="_blank">Instagram →</a>
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Professional Archive</h3>
+                    <p>
+                        Research background and selected work.
+                    </p>
+                    <p>
+                        <a href="https://virajmuthye.weebly.com/" target="_blank">Website →</a>
+                    </p>
+                </div>
             </div>
 
-            <div class="card">
-                <h3>Visual Science Communication</h3>
-                <p>
-                    Accessible science storytelling through visuals and short-form content.
-                </p>
-                <p>
-                    <a href="https://www.instagram.com/awesomebiology" target="_blank">Instagram (Science Communication)→</a>
-                </p>
-                <p>
-                    <a href="https://www.instagram.com/creativesciencealliance" target="_blank">Instagram (Creative Science Alliance) →</a>
-                </p>                
-            </div>
-
-            <div class="card">
-                <h3>Professional Archive</h3>
-                <p>
-                    Research background and selected professional work.
-                </p>
-                <p>
-                    <a href="https://virajmuthye.weebly.com/" target="_blank">Website →</a>
-                </p>
-            </div>
+            <img src="communication.jpg" alt="Science communication visuals" class="section-photo">
         </div>
     </section>
 
     <!-- OUTREACH -->
     <section>
         <h2>Public Engagement & Outreach</h2>
-        <p>
-            I have designed and facilitated hands-on science outreach activities across Calgary,
-            both independently and through the Creative Science Alliance. 
-        </p>
-        <p>
-            As the Head of Communications of the Graduate College at the University of Calgary, 
-            I oversaw team efforts to design and maintain the organization newsletter, website, blog, 
-            and social media.
-        </p>
-        <p>
-            As a member of the Host-Parasite Interactions Group at the University of Calgary, 
-            I led team efforts to organize multiple outreach events in Calgary.
-            Examples include Fishtival and the Alberta Biodiversity Festival at the Bow Habitat Station
-            and the Minds in Motion Summer Camps.
-        </p>
-         <h2>Public Engagement & Outreach</h2>
-            <img src="outreach.jpeg" alt="Community science outreach event in Calgary" class="section-photo">
-
+        <div class="section-layout reverse">
+            <img src="outreach.jpg" alt="Community outreach event" class="section-photo">
+            <div>
+                <p>
+                    I have designed and facilitated hands-on science outreach activities
+                    across Calgary.
+                </p>
+                <p>
+                    I have led outreach through university groups, festivals,
+                    and community organisations.
+                </p>
+            </div>
+        </div>
     </section>
 
     <!-- CREDIBILITY -->
     <section>
         <h2>Scientific and Artistic Credibility</h2>
-        <p>
-            PhD-trained bioinformatician with 12 peer-reviewed publications,
-            including 8 as first author.
-        </p>
-        <p>
-            Published Author: I published my book of poems in English in India. I am 
-            very active in the local poetry scene in Calgary.
-        </p>
-        <p>
-            Member of the Writer's Guild of Alberta.
-        </p>
+        <div class="section-layout">
+            <div>
+                <p>
+                    PhD-trained bioinformatician with twelve peer-reviewed publications.
+                </p>
+                <p>
+                    Published poet and active member of the Calgary literary community.
+                </p>
+            </div>
+            <img src="credibility.jpg" alt="Scientific presentation or poetry reading" class="section-photo">
+        </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <p>
             Contact: virajrajendra.muthye@ucalgary.ca • Calgary, Canada
